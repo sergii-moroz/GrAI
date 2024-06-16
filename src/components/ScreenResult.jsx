@@ -8,9 +8,9 @@ import { PannelBottom } from "./PanelBottom";
 import { ChooseLanguage } from "./ChooseLanguage";
 import { BlockGenerateGreeting } from "./BlockGenerateGreeting";
 
-export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl }) => {
+export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseText, setResponseText }) => {
 	const [greetText, setGreetText] = useState("");
-	const [responseText, setResponseText] = useState("");
+	// const [responseText, setResponseText] = useState("");
 	const [language, setLanguage] = useState({ full: 'English', code: 'en' });
 	const [showResponseLoading, setResponseLoading] = useState(false);
 	const [showPhraseLoading, setPhraseLoading] = useState(false);

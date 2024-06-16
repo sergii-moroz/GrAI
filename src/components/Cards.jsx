@@ -1,4 +1,4 @@
-export const	Cards = ({heroes, heroIdx, setHeroIdx, setVideoUrl, setMuted}) => {
+export const	Cards = ({heroes, heroIdx, setHeroIdx, setVideoUrl, setMuted, setResonseText}) => {
 	return (
 		<div className="cards">
 			{heroes.map((item, idx) => {
@@ -7,6 +7,7 @@ export const	Cards = ({heroes, heroIdx, setHeroIdx, setVideoUrl, setMuted}) => {
 							setHeroIdx(idx);
 							setVideoUrl("");
 							setMuted(false);
+							setResonseText("");
 						}} >
 						<img src={item.image} alt={item.name} />
 					</button>

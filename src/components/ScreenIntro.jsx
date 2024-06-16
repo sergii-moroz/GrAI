@@ -3,7 +3,7 @@ import { VideoIntro } from "./VideoIntro";
 import { NavOverlay } from "./NavOverlay";
 import { Cards } from "./Cards";
 
-export const	ScreenIntro = ({ heroes, heroIdx, setHeroIdx, setVideoUrl }) => {
+export const	ScreenIntro = ({ heroes, heroIdx, setHeroIdx, setVideoUrl, setResponseText }) => {
 
 	const	[muted, setMuted] = useState(false);
 
@@ -25,6 +25,7 @@ export const	ScreenIntro = ({ heroes, heroIdx, setHeroIdx, setVideoUrl }) => {
 				setHeroIdx={setHeroIdx}
 				setVideoUrl={setVideoUrl}
 				setMuted={setMuted}
+				setResonseText={setResponseText}
 			/>
 
 			<NavOverlay

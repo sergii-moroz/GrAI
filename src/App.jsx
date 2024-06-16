@@ -8,6 +8,7 @@ import Heroes 				from './components/Heroes'
 const	App = () => {
 	const	[heroIdx, setHeroIdx] = useState(0);
 	const	[videoUrl, setVideoUrl] = useState("");
+	const	[responseText, setResponseText] = useState("");
 
 	return (
 		<>
@@ -17,6 +18,7 @@ const	App = () => {
 					heroIdx={heroIdx}
 					setHeroIdx={setHeroIdx}
 					setVideoUrl={setVideoUrl}
+					setResponseText={setResponseText}
 				/>
 			</Section>
 
@@ -26,6 +28,8 @@ const	App = () => {
 					heroIdx={heroIdx}
 					videoUrl={videoUrl}
 					setVideoUrl={setVideoUrl}
+					responseText={responseText}
+					setResponseText={setResponseText}
 				/>
 			</Section>
 		</>
