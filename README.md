@@ -10,4 +10,4 @@ npm run dev
 
 ## Screenshot
 
-![image](Screenshot 2024-06-15 at 21-34-28 KI-Festival.png)
+![image](./Screenshot 2024-06-15 at 21-34-28 KI-Festival.png)
