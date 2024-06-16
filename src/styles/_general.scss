@@ -9,6 +9,7 @@ html {
 }
 
 body {
+	// font-family: 'Playfair', sans-serif;
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -20,3 +21,10 @@ a:visited, a:link, a:hover, a:active {
 ul {
 	list-style: none;
 }
+
+// $accent-color: #c800ff85;
+$accent-color:		hsl(251, 45%, 55%);
+$accent-shadow-1:	#ca7bff;
+$accent-shadow-2:	hsl(291, 95%, 40%);
+
+$font-family-hero: "Playfair";

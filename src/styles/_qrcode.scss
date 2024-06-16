@@ -1,0 +1,21 @@
+.qr-code-wrapper {
+	// border: 1px solid #eee;
+
+	.qr-code {
+		margin-top: 4rem;
+		width: 20rem;
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	.qr-code-animation {
+		opacity: 1;
+		// animation: qr-code-show-up 1s ease-in alternate;
+	}
+}
+
+// @keyframes qr-code-show-up {
+// 	0%		{ width: 20rem; opacity: 0;}
+// 	50%		{ width: 22rem; opacity: 0.25;}
+// 	100%	{ width: 20rem; opacity: 1.0;}
+// }

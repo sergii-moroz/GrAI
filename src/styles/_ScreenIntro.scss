@@ -1,0 +1,138 @@
+// .arrow-container-left {
+// 	position: absolute;
+// 	left: 0;
+// 	padding: 0.2rem 0.2rem;
+// }
+
+// .arrow-container-right {
+// 	position: absolute;
+// 	right: 0;
+// 	padding: 0.2rem 0.2rem;
+// }
+
+// .arrow-container-bottom {
+// 	position: absolute;
+// 	bottom: 0;
+// 	padding: 0.2rem 0.2rem;
+// }
+
+.arrow {
+	//position: absolute;
+	width: 4.5rem;
+	height: 4.5rem;
+	color: white;
+	filter: drop-shadow(0px 0px 5px $accent-shadow-1);
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.arrow-left {
+	position: absolute;
+	left: 0;
+	margin-left: 0.5rem;
+	margin-right: 0.25rem;
+
+	&:hover {
+		margin-left: 0.25rem;
+		margin-right: 0.5rem;
+		opacity: 0.8;
+	}
+}
+
+.arrow-right {
+	position: absolute;
+	right: 0;
+	margin-left: 0.25rem;
+	margin-right: 0.5rem;
+
+	&:hover {
+		margin-left: 0.5rem;
+		margin-right: 0.25rem;
+		opacity: 0.8;
+	}
+}
+
+.arrow-bottom {
+	position: absolute;
+	bottom: 0.2rem;
+	margin-top: 0.25rem;
+	margin-bottom: 0.5rem;
+
+	&:hover {
+		margin-top: 0.5rem;
+		margin-bottom: 0.25rem;
+		opacity: 0.8;
+	}
+}
+
+.arrow-up {
+	position: absolute;
+	bottom: 5rem;
+	right: 5rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.25rem;
+
+	&:hover {
+		margin-top: 0.25rem;
+		margin-bottom: 0.5rem;
+		opacity: 0.8;
+	}
+}
+
+.screen-intro {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	.slide {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+
+
+	.greeter-ai {
+		// font-family: 'Luckiest Guy';
+		position: absolute;
+		left: 7rem;
+		top: 5rem;
+		font-size: 7rem;
+		color: whitesmoke;
+		text-transform: uppercase;
+		animation: glow-pulse 1s infinite alternate;
+	}
+
+	.hero-name {
+		position: absolute;
+		left: 7rem;
+		top: 65%;
+		color: white;
+		font-family: $font-family-hero;
+		font-size: 7rem;
+		text-transform: uppercase;
+		animation: glow-pulse 1s infinite alternate;
+	}
+}
+
+@keyframes glow-pulse{
+	0% {
+		text-shadow: 0 0 1rem $accent-shadow-2;
+	}
+	100% {
+		text-shadow: 0 0 1.5rem $accent-shadow-1;
+	}
+}
+
+@keyframes glow-shadow {
+	0% {
+		box-shadow: 0 0 1rem $accent-shadow-2;
+	}
+	100% {
+		box-shadow: 0 0 1.5rem $accent-shadow-1;
+	}
+}

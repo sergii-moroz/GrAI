@@ -1,0 +1,126 @@
+.screen-result {
+	height: 100%;
+	display: flex;
+}
+
+.img-hero {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		cursor: pointer;
+	}
+
+	.bottom-panel {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		color: white;
+		width: 100%;
+		text-shadow: 0.2rem 0.2rem #00000073;
+		background: radial-gradient(circle at 10% 20%, rgba(64, 84, 178, 0.7) 0%, rgba(219, 2, 234, 0.5) 90%);
+		padding: 0rem 5rem 5rem 5rem;
+
+		.titel-container {
+			display: flex;
+			align-items: center;
+			gap: 2.0rem;
+
+			.hero-name {
+				font-family: $font-family-hero;
+				font-size: 8rem;
+				text-transform: uppercase;
+			}
+
+			span {
+				font-size: 2.4rem;
+				padding: 0.5rem 1.0rem;
+				background-color: white;
+				color: #777;
+				border-radius: 1.0rem;
+			}
+		}
+	}
+}
+
+.side-panel {
+	position: relative;
+	width: 40%;
+	min-width: 32rem;
+	background-color: white;
+	padding: 2rem 5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.communication-with-user {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+}
+
+
+
+.textarea-prompt {
+    font-size: 1.4rem;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    resize: none;
+    width: 100%;
+    max-width: 600px;
+    height: 10rem;
+    outline: none;
+    transition: border 0.3s ease;
+    background-color: #f0f0f0;
+
+    &:focus {
+        border: 1px solid $accent-color;
+    }
+}
+.textarea-title {
+    margin-top: 4rem;
+    color: #333;
+}
+
+// .generate-button {
+//     display: block;
+//     margin: .0 auto;
+//     padding: 1rem 2rem;
+//     background: linear-gradient(to right, #06a4f9, #d406f9);
+//     color: #fff;
+//     border: none;
+//     border-radius: .75rem;
+//     cursor: pointer;
+//     box-shadow: none;
+//     // transition: background-color .3s;
+//     transition: background-color, box-shadow 0.3s ease;
+
+//     &:hover,
+//     &:focus {
+//         box-shadow: 0 .5rem 1rem hsla(221, 75%, 50%, 0.5);
+//     }
+//     &:active {
+//         background: linear-gradient(to right, hsl(201, 95%, 40%), hsl(291, 95%, 40%));
+//         box-shadow: 0 .5rem 1rem hsla(221, 75%, 50%, 0.5);
+//     }
+// }
+
+.scroll-container {
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    padding: 0.2rem 0.2rem;
+    color: #c473ca;
+}
