@@ -13,6 +13,7 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl }) => {
 	const [responseText, setResponseText] = useState("");
 	const [language, setLanguage] = useState({ full: 'English', code: 'en' });
 	const [showResponseLoading, setResponseLoading] = useState(false);
+	const [showPhraseLoading, setPhraseLoading] = useState(false);
 	const [dotIndex, setDotIndex] = useState(0);
 	const [randomPhrase, setRandomPhrase] = useState("");
 	const phrases = [
@@ -100,13 +101,21 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl }) => {
 			if (showResponseLoading) {
 				setDotIndex((dotIndex + 1) % 5);
 				setResponseText("Loading " + ".".repeat(dotIndex));
+			}
+		}, 1500);
+		return () => clearInterval(dotInterval);
+	}, [showResponseLoading, dotIndex]);
+
+	useEffect(() => {
+		const	phraseInterval = setInterval(() => {
+			if (showPhraseLoading) {
 				setRandomPhrase("is " + getRandomPhrase(phrases));
 			} else {
 				setRandomPhrase("");
 			}
 		}, 1500);
-		return () => clearInterval(dotInterval);
-	}, [showResponseLoading, dotIndex]);
+		return () => clearInterval(phraseInterval);
+	}, [showPhraseLoading]);
 
     // const handleGenerateButtonClick = (e) => {
     //     e.preventDefault();
@@ -222,7 +231,7 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl }) => {
 						persona={heroes[heroIdx].name}
 						lang={language.code}
 						setVideoUrl={setVideoUrl}
-						setResponseLoading={setResponseLoading}
+						setPhraseLoading={setPhraseLoading}
 						tempVideo={heroes[heroIdx].video}
 					/>
 

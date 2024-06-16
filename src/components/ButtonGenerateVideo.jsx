@@ -1,6 +1,6 @@
 import { ButtonGenerate } from "./ButtonGenerate";
 
-export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setResponseLoading, tempVideo}) => {
+export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setPhraseLoading, tempVideo}) => {
 
 	const	handleGetVideoButtonClick = (event) => {
 		event.preventDefault();
@@ -40,9 +40,10 @@ export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setResp
 			// emulate waiting from backend
 			// DELETE/COMMENT from HERE
 			handleOnClick={() => {
-				setResponseLoading(true);
+				setPhraseLoading(true);
+				setVideoUrl("");
 				setTimeout(() => {
-					setResponseLoading(false);
+					setPhraseLoading(false);
 					setVideoUrl(tempVideo);
 				}, 7000);
 			}}

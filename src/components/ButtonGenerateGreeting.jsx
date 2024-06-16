@@ -61,7 +61,6 @@ export const	ButtonGenerateGreeting = ({ setDotIndex, setResponseLoading, setVid
 		setTimeout(() => {
 			setResponseLoading(false);
 			setResponseText("Super Duper Greeting from super hero!");
-			// setVideoUrl(heroes[heroIdx].video);
 		}, 7000);
 		// Til HERE */
 	};
