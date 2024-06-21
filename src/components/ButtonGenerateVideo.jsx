@@ -1,9 +1,11 @@
 import { ButtonGenerate } from "./ButtonGenerate";
 
 export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setPhraseLoading, tempVideo}) => {
-
+	
 	const	handleGetVideoButtonClick = (event) => {
 		event.preventDefault();
+		setPhraseLoading(true);
+		setVideoUrl('');
 
 		fetch('https://choice-goose-loved.ngrok-free.app/infer_image', {
 			method: 'POST',
@@ -19,6 +21,7 @@ export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setPhra
 			})
 		})
 		.then(response => {
+			setPhraseLoading(false);
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
 			}
@@ -35,20 +38,7 @@ export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setPhra
 	return (
 		<ButtonGenerate
 			caption="Generate Video"
-			// handleOnClick={handleGetVideoButtonClick}
-
-			// emulate waiting from backend
-			// DELETE/COMMENT from HERE
-			handleOnClick={() => {
-				setPhraseLoading(true);
-				setVideoUrl("");
-				setTimeout(() => {
-					setPhraseLoading(false);
-					setVideoUrl(tempVideo);
-				}, 7000);
-			}}
-			// Til HERE */
-
+			handleOnClick={handleGetVideoButtonClick}
 		/>
 	);
 }

@@ -30,7 +30,7 @@ ul {
   width: 4.5rem;
   height: 4.5rem;
   color: white;
-  filter: drop-shadow(0px 0px 5px #ca7bff);
+  filter: drop-shadow(0px 0px 5px hsl(276, 100%, 74%));
 }
 .arrow:hover {
   cursor: pointer;
@@ -62,7 +62,8 @@ ul {
 
 .arrow-bottom {
   position: absolute;
-  bottom: 0.2rem;
+  bottom: 5rem;
+  right: 3rem;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
 }
@@ -75,7 +76,7 @@ ul {
 .arrow-up {
   position: absolute;
   bottom: 5rem;
-  right: 5rem;
+  right: 3rem;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
 }
@@ -99,20 +100,23 @@ ul {
      object-fit: cover;
 }
 .screen-intro .greeter-ai {
+  font-family: "Poppins";
+  font-weight: 900;
   position: absolute;
-  left: 7rem;
+  right: 7rem;
   top: 5rem;
   font-size: 7rem;
-  color: whitesmoke;
+  color: hsla(0, 0%, 100%, 0.25);
   text-transform: uppercase;
-  animation: glow-pulse 1s infinite alternate;
+  -webkit-text-stroke: 0.25rem #FFF;
 }
 .screen-intro .hero-name {
   position: absolute;
   left: 7rem;
-  top: 65%;
+  top: 70%;
   color: white;
-  font-family: "Playfair";
+  font-family: "Poppins";
+  font-weight: 800;
   font-size: 7rem;
   text-transform: uppercase;
   animation: glow-pulse 1s infinite alternate;
@@ -120,18 +124,18 @@ ul {
 
 @keyframes glow-pulse {
   0% {
-    text-shadow: 0 0 1rem hsl(291, 95%, 40%);
+    text-shadow: 0 0 1rem #aa05c7;
   }
   100% {
-    text-shadow: 0 0 1.5rem #ca7bff;
+    text-shadow: 0 0 1.5rem hsl(276, 100%, 74%);
   }
 }
 @keyframes glow-shadow {
   0% {
-    box-shadow: 0 0 1rem hsl(291, 95%, 40%);
+    box-shadow: 0 0 1rem #aa05c7;
   }
   100% {
-    box-shadow: 0 0 1.5rem #ca7bff;
+    box-shadow: 0 0 1.5rem hsl(276, 100%, 74%);
   }
 }
 .cards {
@@ -212,25 +216,25 @@ ul {
   color: white;
   width: 100%;
   text-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.4509803922);
-  background: radial-gradient(circle at 10% 20%, rgba(64, 84, 178, 0.7) 0%, rgba(219, 2, 234, 0.5) 90%);
-  padding: 0rem 5rem 5rem 5rem;
+  background: linear-gradient(to top, hsla(201, 95%, 40%, 0), hsla(291, 95%, 40%, 0.759));
+  padding: 0rem 5rem 3rem 5rem;
+  margin-bottom: 3rem;
 }
 .img-hero .bottom-panel .titel-container {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 2rem;
 }
 .img-hero .bottom-panel .titel-container .hero-name {
-  font-family: "Playfair";
-  font-size: 8rem;
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 5rem;
   text-transform: uppercase;
 }
 .img-hero .bottom-panel .titel-container span {
-  font-size: 2.4rem;
-  padding: 0.5rem 1rem;
-  background-color: white;
-  color: #777;
-  border-radius: 1rem;
+  font-size: 3rem;
+  font-weight: 300;
+  color: #fff;
 }
 
 .side-panel {
@@ -238,7 +242,7 @@ ul {
   width: 40%;
   min-width: 32rem;
   background-color: white;
-  padding: 2rem 5rem;
+  padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,7 +255,7 @@ ul {
 }
 
 .textarea-prompt {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   border: 1px solid transparent;
   border-radius: 1rem;
   margin: 1rem 0;
@@ -269,7 +273,9 @@ ul {
 }
 
 .textarea-title {
-  margin-top: 4rem;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2rem;
   color: #333;
 }
 
@@ -303,6 +309,9 @@ ul {
 }
 
 .lang-button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
   background-color: #f0f0f0;
   color: #333;
   border: none;
@@ -314,6 +323,7 @@ ul {
 
 .lang-button.active {
   background-color: hsl(251, 45%, 55%);
+  font-weight: 500;
   color: #fff;
 }
 
@@ -323,7 +333,7 @@ h2 {
 }
 
 .qr-code-wrapper .qr-code {
-  margin-top: 4rem;
+  margin-top: 2rem;
   width: 20rem;
   opacity: 0;
   transition: opacity 1s;
@@ -333,6 +343,9 @@ h2 {
 }
 
 .button-generate {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 500;
   display: block;
   margin: 0 auto;
   padding: 1rem 2rem;

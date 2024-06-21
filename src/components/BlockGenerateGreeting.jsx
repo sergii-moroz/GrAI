@@ -1,6 +1,6 @@
 import { ButtonGenerateGreeting } from "./ButtonGenerateGreeting";
 
-export const	BlockGenerateGreeting = ({name, greetText, setGreetText, setDotIndex, setResponseLoading, setVideoUrl, setResponseText}) => {
+export const	BlockGenerateGreeting = ({name, greetText, language, setGreetText, setDotIndex, setResponseLoading, setVideoUrl, setResponseText}) => {
 	return (
 		<>
 			<h2 className="textarea-title">Ask {name}:</h2>
@@ -13,6 +13,9 @@ export const	BlockGenerateGreeting = ({name, greetText, setGreetText, setDotInde
 			/>
 
 			<ButtonGenerateGreeting
+				name={name}
+				greetText={greetText}
+				language={language}
 				setDotIndex={setDotIndex}
 				setResponseLoading={setResponseLoading}
 				setVideoUrl={setVideoUrl}

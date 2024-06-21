@@ -27,7 +27,7 @@ export const	NavOverlay = ({heroes, heroIdx, setHeroIdx, setVideoUrl, setMuted})
 				onClick={nextSlide}
 			/>
 
-			<ScrollToSection idx={2} type={'DOWN'} />
+			<ScrollToSection idx={2} type={'DOWN'} setMuted={setMuted} />
 		</>
 	);
 }

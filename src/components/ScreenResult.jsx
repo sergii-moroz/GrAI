@@ -10,7 +10,6 @@ import { BlockGenerateGreeting } from "./BlockGenerateGreeting";
 
 export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseText, setResponseText }) => {
 	const [greetText, setGreetText] = useState("");
-	// const [responseText, setResponseText] = useState("");
 	const [language, setLanguage] = useState({ full: 'English', code: 'en' });
 	const [showResponseLoading, setResponseLoading] = useState(false);
 	const [showPhraseLoading, setPhraseLoading] = useState(false);
@@ -46,63 +45,13 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
     }
 */
 
-    // const generateGreeting = () => {
-    //     const requestData2 = {
-    //         "model": "llama3",
-    //         "messages": [
-    //             {
-    //                 "role": "system",
-    //                 "content": `Reply as ${heroes[heroIdx].name} from Cartoon movie, use only ${language.full} language for reply, If you find name talk to this person, be friendly, say who you are first, use less than 50 words for answer, do not use emojies or hashtags.`
-    //             },
-    //             {
-    //                 "role": "user",
-    //                 "content": greetText
-    //             }
-    //         ],
-    //         "stream": false,
-    //         "options": {
-    //         "max_tokens": 100,
-    //         "temperature": 0.7,
-    //         "stop": ["#", "("],
-    //         "num_predict": 99,
-    //         "top_p": 0.5,
-    //         "top_k": 45,
-    //         "presence_penalty": 1.2,}
-    //     };
-
-    //     fetch('http://localhost:11434/api/chat', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(requestData2)
-    //     })
-    //     .then(response => response.json())
-    //     .then(responseJson => {
-    //         // console.log('Success:', responseJson);
-    //         const text = responseJson.message.content.trim();
-    //         const words = text.split(' ');
-    //         let displayText = "";
-    //         words.forEach((word, index) => {
-    //             setTimeout(() => {
-    //                 displayText += (index > 0 ? ' ' : '') + word;
-    //                 setResponseText(displayText);
-    //             }, index * 15);
-    //         });
-    //     })
-    //     .catch(error => {
-    //         console.error('Error fetching or parsing data:', error);
-    //         setResponseText("Error fetching or parsing data from server. Please try again.");
-    //     });
-    // };
-
 	useEffect(() => {
 		const dotInterval = setInterval(() => {
 			if (showResponseLoading) {
-				setDotIndex((dotIndex + 1) % 5);
-				setResponseText("Loading " + ".".repeat(dotIndex));
+				setDotIndex((dotIndex + 1) % 4);
+				setResponseText("Loading" + ".".repeat(dotIndex));
 			}
-		}, 1500);
+		}, 333);
 		return () => clearInterval(dotInterval);
 	}, [showResponseLoading, dotIndex]);
 
@@ -113,7 +62,7 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
 			} else {
 				setRandomPhrase("");
 			}
-		}, 1500);
+		}, 2500);
 		return () => clearInterval(phraseInterval);
 	}, [showPhraseLoading]);
 
@@ -196,6 +145,7 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
 					<BlockGenerateGreeting
 						name={heroes[heroIdx].name}
 						greetText={greetText}
+						language={language.full}
 						setGreetText={setGreetText}
 						setDotIndex={setDotIndex}
 						setResponseLoading={setResponseLoading}
@@ -236,6 +186,8 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
 					/>
 
 					<MyQRCode
+						persona={heroes[heroIdx].name}
+						// setVideoUrl={setVideoUrl}
 						value="https://we.tl/t-BzcXCcNkC1"
 						videoUrl={videoUrl}
 					/>

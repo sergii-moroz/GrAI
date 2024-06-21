@@ -5,7 +5,7 @@ import { Cards } from "./Cards";
 
 export const	ScreenIntro = ({ heroes, heroIdx, setHeroIdx, setVideoUrl, setResponseText }) => {
 
-	const	[muted, setMuted] = useState(false);
+	const	[muted, setMuted] = useState(true);
 
 	return (
 		<div className="screen-intro">

@@ -1,14 +1,13 @@
 import { ButtonGenerate } from "./ButtonGenerate";
 
-export const	ButtonGenerateGreeting = ({ setDotIndex, setResponseLoading, setVideoUrl, setResponseText }) => {
-
-	const	generateGreeting = () => {
+export const	ButtonGenerateGreeting = ({ name, greetText, language, setDotIndex, setResponseLoading, setVideoUrl, setResponseText }) => {
+	const	generateGreeting = (name, language) => {
 		const	requestData2 = {
 			"model": "llama3",
 			"messages": [
 				{
 					"role": "system",
-					"content": `Reply as ${heroes[heroIdx].name} from Cartoon movie, use only ${language.full} language for reply, If you find name talk to this person, be friendly, say who you are first, use less than 50 words for answer, do not use emojies or hashtags.`
+					"content": `Reply as ${name} from cartoon movie, use only ${language} language for reply, If you find name talk to this person, be friendly, say Hello and who you are first, use less than 50 words for answer, do not use emojies or hashtags.`
 				},
 				{
 					"role": "user",
@@ -17,30 +16,33 @@ export const	ButtonGenerateGreeting = ({ setDotIndex, setResponseLoading, setVid
 			],
 			"stream": false,
 			"options": {
-			"max_tokens": 100,
+			// "max_tokens": 100,
 			"temperature": 0.7,
-			"stop": ["#", "("],
+			"stop": ["#", "(", "*"],
 			"num_predict": 99,
 			"top_p": 0.5,
 			"top_k": 45,
-			"presence_penalty": 1.2,}
+			"presence_penalty": 1.1,}
 		};
 
-		fetch('http://localhost:11434/api/chat', {
+		// fetch('http://localhost:11434/api/chat', {
+		fetch('https://choice-goose-loved.ngrok-free.app/infer_text', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json', },
 			body: JSON.stringify(requestData2)
 		})
 		.then(response => response.json())
 		.then(responseJson => {
-			const	text = responseJson.message.content.trim();
+			setResponseLoading(false);
+			// const	text = responseJson.message.content.trim();
+			const	text = responseJson.text.trim();
 			const	words = text.split(' ');
 			let displayText = "";
 			words.forEach((word, index) => {
 				setTimeout(() => {
 					displayText += (index > 0 ? ' ' : '') + word;
 					setResponseText(displayText);
-				}, index * 15);
+				}, index * 25);
 			});
 		})
 		.catch(error => {
@@ -54,14 +56,13 @@ export const	ButtonGenerateGreeting = ({ setDotIndex, setResponseLoading, setVid
 		setDotIndex(0);
 		setResponseLoading(true);
 		setVideoUrl("");
-		// generateGreeting();
+		generateGreeting(name, language);
 
 		// emulate waiting from backend
 		// DELETE/COMMENT from HERE
-		setTimeout(() => {
-			setResponseLoading(false);
-			setResponseText("Super Duper Greeting from super hero!");
-		}, 7000);
+		// setTimeout(() => {
+		// 	setResponseText("Super Duper Greeting from super hero!");
+		// }, 7000);
 		// Til HERE */
 	};
 
