@@ -1,0 +1,33 @@
+.user-guide {
+	position: absolute;
+	bottom: 10%;
+	left: 75%;
+	color: #fff;
+	font-size: 1.8rem;
+
+	.step-1, .step-2 {
+		margin: 2rem 0;
+		span {
+			border: 1px solid #fff;
+			border-radius: 50%;
+			width: 2rem;
+			padding: 0 1rem;
+			margin: 0 1rem 0 0;
+		}
+	}
+
+	.arrow-helper {
+		animation: arrow-helper 1s infinite alternate;
+	}
+}
+
+
+
+@keyframes arrow-helper {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(0.5rem);
+	}
+}

@@ -7,9 +7,11 @@ import { VideoResult } from "./VideoResult";
 import { PannelBottom } from "./PanelBottom";
 import { ChooseLanguage } from "./ChooseLanguage";
 import { BlockGenerateGreeting } from "./BlockGenerateGreeting";
+import useGreetingStore from "../stores/greetingStore";
+import useGenerateVideoStore from "../stores/generateVideoStore";
 
 export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseText, setResponseText }) => {
-	const [greetText, setGreetText] = useState("");
+	const [greetText, setGreetText] = useState("greet my son (his name is Steven) with 7th birthday");
 	const [language, setLanguage] = useState({ full: 'English', code: 'en' });
 	const [showResponseLoading, setResponseLoading] = useState(false);
 	const [showPhraseLoading, setPhraseLoading] = useState(false);
@@ -32,39 +34,28 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
 		return phrases[randomIndex];
 	}
 
-/*
-    const videoPlayerDiv = document.getElementById("videoPlayerDiv");
-	function createVideoPlayer(videoUrl) {
-        let video = document.createElement("video");
-        video.src = videoUrl;
-        video.controls = true;
-        video.autoplay = true;
-        video.id = "heroVideo";
-        videoPlayerDiv.innerHTML = ""; // Clear the video player div
-        videoPlayerDiv.appendChild(video);
-    }
-*/
-
+	const	loading = useGreetingStore(state => state.loading);
 	useEffect(() => {
 		const dotInterval = setInterval(() => {
-			if (showResponseLoading) {
+			if (loading) {
 				setDotIndex((dotIndex + 1) % 4);
 				setResponseText("Loading" + ".".repeat(dotIndex));
 			}
 		}, 333);
 		return () => clearInterval(dotInterval);
-	}, [showResponseLoading, dotIndex]);
+	}, [loading, dotIndex]);
 
+	const	phraseLoading = useGenerateVideoStore(state => state.loading);
 	useEffect(() => {
 		const	phraseInterval = setInterval(() => {
-			if (showPhraseLoading) {
+			if (phraseLoading) {
 				setRandomPhrase("is " + getRandomPhrase(phrases));
 			} else {
 				setRandomPhrase("");
 			}
 		}, 2500);
 		return () => clearInterval(phraseInterval);
-	}, [showPhraseLoading]);
+	}, [phraseLoading]);
 
     // const handleGenerateButtonClick = (e) => {
     //     e.preventDefault();

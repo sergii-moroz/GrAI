@@ -1,5 +1,4 @@
 .qr-code-wrapper {
-	// border: 1px solid #eee;
 
 	.qr-code {
 		margin-top: 2rem;
@@ -12,10 +11,12 @@
 		opacity: 1;
 		// animation: qr-code-show-up 1s ease-in alternate;
 	}
-}
 
-// @keyframes qr-code-show-up {
-// 	0%		{ width: 20rem; opacity: 0;}
-// 	50%		{ width: 22rem; opacity: 0.25;}
-// 	100%	{ width: 20rem; opacity: 1.0;}
-// }
+	.short-link {
+		text-align: center;
+		font-size: 1.4rem;
+		color: #aa05c7;
+		opacity: 0.8;
+		transform: translateY(-2rem);
+	}
+}

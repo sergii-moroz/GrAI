@@ -3,7 +3,7 @@ export const	VideoResult = ({poster, videoUrl}) => {
 		<video
 			type="video/mp4"
 			autoPlay
-			controls
+			// controls
 			poster={poster}
 			src={videoUrl}
 			onClick={(event) => { event.target.paused ? event.target.play() : event.target.pause() }}

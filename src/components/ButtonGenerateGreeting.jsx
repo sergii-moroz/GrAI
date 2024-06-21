@@ -1,6 +1,11 @@
+import useGreetingStore from "../stores/greetingStore";
 import { ButtonGenerate } from "./ButtonGenerate";
 
 export const	ButtonGenerateGreeting = ({ name, greetText, language, setDotIndex, setResponseLoading, setVideoUrl, setResponseText }) => {
+
+	const loading = useGreetingStore(state => state.loading);
+	const setLoading = useGreetingStore(state => state.setLoading);
+
 	const	generateGreeting = (name, language) => {
 		const	requestData2 = {
 			"model": "llama3",
@@ -33,7 +38,7 @@ export const	ButtonGenerateGreeting = ({ name, greetText, language, setDotIndex,
 		})
 		.then(response => response.json())
 		.then(responseJson => {
-			setResponseLoading(false);
+			setLoading(false);
 			// const	text = responseJson.message.content.trim();
 			const	text = responseJson.text.trim();
 			const	words = text.split(' ');
@@ -54,21 +59,23 @@ export const	ButtonGenerateGreeting = ({ name, greetText, language, setDotIndex,
 	const handleGenerateButtonClick = (event) => {
 		event.preventDefault();
 		setDotIndex(0);
-		setResponseLoading(true);
+		setLoading(true);
 		setVideoUrl("");
 		generateGreeting(name, language);
 
 		// emulate waiting from backend
 		// DELETE/COMMENT from HERE
-		// setTimeout(() => {
-		// 	setResponseText("Super Duper Greeting from super hero!");
-		// }, 7000);
+		/*setTimeout(() => {
+			setResponseText("Super Duper Greeting from super hero!");
+			setLoading(false);
+		}, 7000);*/
 		// Til HERE */
 	};
 
 	return (
 		<ButtonGenerate
 			caption="Generate Greeting"
+			loading={loading}
 			handleOnClick={handleGenerateButtonClick}
 		/>
 	);

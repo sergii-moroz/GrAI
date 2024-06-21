@@ -191,6 +191,35 @@ ul {
   border: 1px solid white;
 }
 
+.user-guide {
+  position: absolute;
+  bottom: 10%;
+  left: 75%;
+  color: #fff;
+  font-size: 1.8rem;
+}
+.user-guide .step-1, .user-guide .step-2 {
+  margin: 2rem 0;
+}
+.user-guide .step-1 span, .user-guide .step-2 span {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 2rem;
+  padding: 0 1rem;
+  margin: 0 1rem 0 0;
+}
+.user-guide .arrow-helper {
+  animation: arrow-helper 1s infinite alternate;
+}
+
+@keyframes arrow-helper {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0.5rem);
+  }
+}
 .screen-result {
   height: 100%;
   display: flex;
@@ -341,21 +370,29 @@ h2 {
 .qr-code-wrapper .qr-code-animation {
   opacity: 1;
 }
+.qr-code-wrapper .short-link {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #aa05c7;
+  opacity: 0.8;
+  transform: translateY(-2rem);
+}
 
 .button-generate {
   font-family: "Poppins", sans-serif;
   font-size: 1.75rem;
   font-weight: 500;
-  display: block;
-  margin: 0 auto;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, #06a4f9, #d406f9);
+  background: linear-gradient(to right, hsl(201, 95%, 50%), hsl(291, 95%, 50%));
   color: #fff;
   border: none;
   border-radius: 0.75rem;
   cursor: pointer;
-  box-shadow: none;
+  box-shadow: 0 0.5rem 1rem hsla(221, 75%, 50%, 0.1);
   transition: background-color, box-shadow 0.3s ease;
+  min-width: 20.5rem;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 .button-generate:hover, .button-generate:focus {
   box-shadow: 0 0.5rem 1rem hsla(221, 75%, 50%, 0.5);
@@ -363,4 +400,20 @@ h2 {
 .button-generate:active {
   background: linear-gradient(to right, hsl(201, 95%, 40%), hsl(291, 95%, 40%));
   box-shadow: 0 0.5rem 1rem hsla(221, 75%, 50%, 0.5);
+}
+.button-generate svg {
+  animation: spin 1.8s ease infinite;
+}
+.button-generate:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=index.css.map */

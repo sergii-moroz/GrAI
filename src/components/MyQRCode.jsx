@@ -25,25 +25,27 @@ export const MyQRCode = ({ persona, value, videoUrl }) => {
     }
   };
 
-  useEffect(() => {
-    if (videoUrl !== '') {
-      getVideoUrl(persona).then((video_url) => {
-        setQrValue(video_url);
-	});
-    }
-	else {
-		setQrValue('');
-	  }
-  }, [videoUrl, persona]);
+	useEffect(() => {
+		if (videoUrl !== '') {
+			getVideoUrl(persona)
+			.then((video_url) => {
+				setQrValue(video_url);
+			});
+		}
+		else {
+			setQrValue('');
+		}
+	}, [videoUrl, persona]);
 
-  return (
-    <div className="qr-code-wrapper">
-      <QRCode
-        value={qrValue}
-        className={qrValue === '' ? 'qr-code' : 'qr-code qr-code-animation'}
-        fgColor="#aa05c7"
-      />
-    </div>
+	return (
+		<div className="qr-code-wrapper">
+			<QRCode
+				value={qrValue}
+				className={qrValue === '' ? 'qr-code' : 'qr-code qr-code-animation'}
+				fgColor="#aa05c7"
+			/>
+			<div className="short-link">{qrValue}</div>
+		</div>
   );
 };
 
@@ -64,7 +66,7 @@ export const MyQRCode = ({ persona, value, videoUrl }) => {
 // 		if (!response.ok) {
 // 			throw new Error('Network response was not ok');
 // 		  }
-  
+
 // 		  const data = await response.json();
 // 		  console.log(data.video_url);
 // 		  return data.video_url;

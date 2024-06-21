@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { VideoIntro } from "./VideoIntro";
 import { NavOverlay } from "./NavOverlay";
 import { Cards } from "./Cards";
+import { UserGuide } from "./UserGuide";
 
 export const	ScreenIntro = ({ heroes, heroIdx, setHeroIdx, setVideoUrl, setResponseText }) => {
 
@@ -36,6 +37,7 @@ export const	ScreenIntro = ({ heroes, heroIdx, setHeroIdx, setVideoUrl, setRespo
 				setMuted={setMuted}
 			/>
 
+			{/* <UserGuide /> */}
 		</div>
 	)
 }
