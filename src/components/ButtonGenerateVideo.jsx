@@ -80,8 +80,8 @@ export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, tempVid
 		<ButtonGenerate
 			caption="Generate Video"
 			loading={loading}
-			// handleOnClick={handleGetVideoButtonClick}
-			handleOnClick={emulator}
+			handleOnClick={handleGetVideoButtonClick}
+			// handleOnClick={emulator}
 		/>
 	);
 }
