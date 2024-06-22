@@ -238,6 +238,29 @@ ul {
      object-fit: cover;
   cursor: pointer;
 }
+.img-hero .paused-icon, .img-hero .replay-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10rem;
+  height: 10rem;
+  transform: translate(-50%, -50%);
+  pointer-events: all;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: all 0.8s ease-in-out;
+  color: white;
+  filter: drop-shadow(0px 0px 5px hsl(276, 100%, 74%));
+}
+.img-hero .paused-icon:hover, .img-hero .replay-icon:hover {
+  width: 11rem;
+  height: 11rem;
+  opacity: 1;
+}
+.img-hero .hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 .img-hero .bottom-panel {
   position: absolute;
   left: 0;
@@ -245,9 +268,8 @@ ul {
   color: white;
   width: 100%;
   text-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.4509803922);
-  background: linear-gradient(to top, hsla(201, 95%, 40%, 0), hsla(291, 95%, 40%, 0.759));
-  padding: 0rem 5rem 3rem 5rem;
-  margin-bottom: 3rem;
+  background: radial-gradient(circle at 10% 20%, rgba(64, 84, 178, 0.7) 0%, rgba(219, 2, 234, 0.5) 90%);
+  padding: 1.5rem 5rem 1.5rem 5rem;
 }
 .img-hero .bottom-panel .titel-container {
   display: flex;
@@ -306,17 +328,6 @@ ul {
   font-weight: 600;
   margin-top: 2rem;
   color: #333;
-}
-
-.scroll-container {
-  position: absolute;
-  bottom: 5rem;
-  right: 5rem;
-  display: flex;
-  flex-direction: column;
-  border-radius: 1rem;
-  padding: 0.2rem 0.2rem;
-  color: #c473ca;
 }
 
 .lang-panel-container {
@@ -416,4 +427,26 @@ h2 {
   to {
     transform: rotate(360deg);
   }
+}
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border: none;
+  background: transparent;
+  accent-color: hsl(291, 95%, 60%);
+  z-index: 5;
+  transition: all 0.8s ease-in-out;
+  filter: drop-shadow(0px 0px 5px hsl(276, 100%, 74%));
+  -webkit-appearance: none;
+  height: 0.6rem;
+}
+.progressBar::-webkit-progress-bar {
+  background: transparent;
+}
+.progressBar::-webkit-progress-value {
+  background: hsl(291, 95%, 50%);
+}
+.progressBar::-moz-progress-bar {
+  background: hsl(291, 95%, 50%);
 }/*# sourceMappingURL=index.css.map */

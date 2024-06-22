@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { ScrollToSection } from "./ScrollToSection";
 import { MyQRCode } from "./MyQRCode";
-import { ButtonGenerateGreeting } from "./ButtonGenerateGreeting";
 import { ButtonGenerateVideo } from "./ButtonGenerateVideo";
-import { VideoResult } from "./VideoResult";
+import { VideoResult2 } from "./VideoResult2";
 import { PannelBottom } from "./PanelBottom";
 import { ChooseLanguage } from "./ChooseLanguage";
 import { BlockGenerateGreeting } from "./BlockGenerateGreeting";
+
 import useGreetingStore from "../stores/greetingStore";
 import useGenerateVideoStore from "../stores/generateVideoStore";
 
 export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseText, setResponseText }) => {
 	const [greetText, setGreetText] = useState("greet my son (his name is Steven) with 7th birthday");
 	const [language, setLanguage] = useState({ full: 'English', code: 'en' });
-	const [showResponseLoading, setResponseLoading] = useState(false);
-	const [showPhraseLoading, setPhraseLoading] = useState(false);
 	const [dotIndex, setDotIndex] = useState(0);
 	const [randomPhrase, setRandomPhrase] = useState("");
 	const phrases = [
@@ -57,64 +55,11 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
 		return () => clearInterval(phraseInterval);
 	}, [phraseLoading]);
 
-    // const handleGenerateButtonClick = (e) => {
-    //     e.preventDefault();
-	// 	setDotIndex(0);
-	// 	setResponseLoading(true);
-	// 	setVideoUrl("");
-    //     // generateGreeting();
-	// 	setTimeout(() => {
-	// 		setResponseLoading(false);
-	// 		setResponseText("OK");
-	// 		setVideoUrl(heroes[heroIdx].video);
-	// 	}, 7000);
-
-    // };
-
-    // const handleGetVideoButtonClick = (e) => {
-    //     e.preventDefault();
-    //     const phrase = responseText;
-    //     const persona = heroes[heroIdx].name;
-    //     const lang = language.code;
-
-    //     fetch('https://choice-goose-loved.ngrok-free.app/infer_image', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Accept': "*/*"
-    //         },
-    //         body: JSON.stringify({
-    //             "text": phrase,
-    //             "persona": persona,
-    //             "language": lang,
-    //             "face_restorer": "None",
-    //         })
-    //     })
-    //     .then(response => {
-    //         if (!response.ok) {
-    //             throw new Error('Network response was not ok');
-    //         }
-    //         return response.blob();
-    //     })
-    //     .then(blob => {
-    //         // const heroImg = document.getElementById("heroImage");
-    //         // if (heroImg) {
-    //         //     heroImg.remove();
-    //         // }
-    //         // const videoUrl = URL.createObjectURL(blob);
-    //         // createVideoPlayer(videoUrl);
-    //         setVideoUrl(URL.createObjectURL(blob));
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
-    // };
-
 	return (
 		<div className="screen-result">
 			<div className="img-hero">
 
-				<VideoResult
+				<VideoResult2
 					poster={heroes[heroIdx].image}
 					videoUrl={videoUrl}
 				/>
@@ -139,25 +84,9 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
 						language={language.full}
 						setGreetText={setGreetText}
 						setDotIndex={setDotIndex}
-						setResponseLoading={setResponseLoading}
 						setVideoUrl={setVideoUrl}
 						setResponseText={setResponseText}
 					/>
-
-					{/* <h2 className="textarea-title">Ask {heroes[heroIdx].name}:</h2>
-					<textarea
-						className="textarea-prompt"
-						placeholder="greet my son (his name is Steven) with 7th birthday"
-						value={greetText}
-						onChange={(e) => setGreetText(e.target.value)}
-					/>
-
-					<ButtonGenerateGreeting
-						setDotIndex={setDotIndex}
-						setResponseLoading={setResponseLoading}
-						setVideoUrl={setVideoUrl}
-						setResponseText={setResponseText}
-					/> */}
 
 					<h2 className="textarea-title">{heroes[heroIdx].name} will say:</h2>
 					<textarea
@@ -172,14 +101,11 @@ export const	ScreenResult = ({ heroes, heroIdx, videoUrl, setVideoUrl, responseT
 						persona={heroes[heroIdx].name}
 						lang={language.code}
 						setVideoUrl={setVideoUrl}
-						setPhraseLoading={setPhraseLoading}
-						tempVideo={heroes[heroIdx].video}
+						tempVideo={heroes[heroIdx].video} // del
 					/>
 
 					<MyQRCode
 						persona={heroes[heroIdx].name}
-						// setVideoUrl={setVideoUrl}
-						value="https://we.tl/t-BzcXCcNkC1"
 						videoUrl={videoUrl}
 					/>
 				</div>

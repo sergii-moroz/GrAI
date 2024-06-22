@@ -1,15 +1,35 @@
 import useGenerateVideoStore from "../stores/generateVideoStore";
+import useVideoResult2Store from "../stores/videoResult2Store";
 import { ButtonGenerate } from "./ButtonGenerate";
 
-export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setPhraseLoading, tempVideo}) => {
+export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, tempVideo}) => {
 
 	const	loading = useGenerateVideoStore(state => state.loading);
 	const	setLoading = useGenerateVideoStore(state => state.setLoading);
+
+	const	setIsPaused = useVideoResult2Store(state => state.setIsPaused);
+	const	setProgress = useVideoResult2Store(state => state.setProgress);
+	const	setReplay = useVideoResult2Store(state => state.setReplay);
+	const	intervalRef = useVideoResult2Store(state => state.intervalRef);
+	const	setIntervalRef = useVideoResult2Store(state => state.setIntervalRef);
+
+	const	stopProgressLoop = () => {
+		if (intervalRef) {
+			clearInterval(intervalRef);
+			setIntervalRef(null);
+		}
+	}
 
 	const	handleGetVideoButtonClick = (event) => {
 		event.preventDefault();
 		setLoading(true);
 		setVideoUrl('');
+
+		// reset Result video component
+		stopProgressLoop();
+		setIsPaused(false);
+		setProgress(0);
+		setReplay(false);
 
 		fetch('https://choice-goose-loved.ngrok-free.app/infer_image', {
 			method: 'POST',
@@ -41,13 +61,17 @@ export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setPhra
 
 	const	emulator = (event) => {
 		event.preventDefault();
-		// setPhraseLoading(true); //del
 		setLoading(true);
 		setVideoUrl('');
 
+		// reset Result video component
+		stopProgressLoop();
+		setIsPaused(false);
+		setProgress(0);
+		setReplay(false);
+
 		setTimeout(() => {
 			setLoading(false);
-			// setPhraseLoading(false);
 			setVideoUrl(tempVideo);
 		}, 7000);
 	}
@@ -56,8 +80,8 @@ export const	ButtonGenerateVideo = ({phrase, persona, lang, setVideoUrl, setPhra
 		<ButtonGenerate
 			caption="Generate Video"
 			loading={loading}
-			handleOnClick={handleGetVideoButtonClick}
-			// handleOnClick={emulator}
+			// handleOnClick={handleGetVideoButtonClick}
+			handleOnClick={emulator}
 		/>
 	);
 }

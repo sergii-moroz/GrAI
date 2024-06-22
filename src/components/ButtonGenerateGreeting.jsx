@@ -1,7 +1,7 @@
 import useGreetingStore from "../stores/greetingStore";
 import { ButtonGenerate } from "./ButtonGenerate";
 
-export const	ButtonGenerateGreeting = ({ name, greetText, language, setDotIndex, setResponseLoading, setVideoUrl, setResponseText }) => {
+export const	ButtonGenerateGreeting = ({ name, greetText, language, setDotIndex, setVideoUrl, setResponseText }) => {
 
 	const loading = useGreetingStore(state => state.loading);
 	const setLoading = useGreetingStore(state => state.setLoading);
