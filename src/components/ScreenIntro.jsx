@@ -37,7 +37,7 @@ export const	ScreenIntro = ({ heroes, heroIdx, setHeroIdx, setVideoUrl, setRespo
 				setMuted={setMuted}
 			/>
 
-			{/* <UserGuide /> */}
+			<UserGuide />
 		</div>
 	)
 }

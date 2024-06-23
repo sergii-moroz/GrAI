@@ -1,23 +1,4 @@
-// .arrow-container-left {
-// 	position: absolute;
-// 	left: 0;
-// 	padding: 0.2rem 0.2rem;
-// }
-
-// .arrow-container-right {
-// 	position: absolute;
-// 	right: 0;
-// 	padding: 0.2rem 0.2rem;
-// }
-
-// .arrow-container-bottom {
-// 	position: absolute;
-// 	bottom: 0;
-// 	padding: 0.2rem 0.2rem;
-// }
-
 .arrow {
-	//position: absolute;
 	width: 4.5rem;
 	height: 4.5rem;
 	color: white;
@@ -56,7 +37,6 @@
 
 .arrow-bottom {
 	position: absolute;
-	// bottom: 0.2rem;
 	bottom: 5rem;
 	right: 3rem;
 	margin-top: 0.25rem;
@@ -95,8 +75,6 @@
 		height: 100%;
 		object-fit: cover;
 	}
-
-
 
 	.greeter-ai {
 		font-family: $font-family-logo;
